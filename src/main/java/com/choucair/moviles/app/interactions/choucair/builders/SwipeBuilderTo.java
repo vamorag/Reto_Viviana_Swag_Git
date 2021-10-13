@@ -50,7 +50,7 @@ public class SwipeBuilderTo {
 		return Tasks.instrumented(SwipeByCoordinates.class
 				, inicialX
 				, inicialY
-				, DeviceScreen.as(actor).getMiddleWidth()
+				, DeviceScreen.as(actor).getMiddleWidth()-1
 				, 1);
 	}
 }

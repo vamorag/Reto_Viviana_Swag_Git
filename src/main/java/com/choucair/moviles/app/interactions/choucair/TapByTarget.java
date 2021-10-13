@@ -6,6 +6,7 @@ import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
+import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.annotations.Step;
 
@@ -21,6 +22,7 @@ public class TapByTarget implements Interaction{
 	@SuppressWarnings("rawtypes")
 	@Step("{0} taps on #target")
 	public <T extends Actor> void performAs(T actor) {
+		actor.attemptsTo(new Performable[]{Scroll.on(this.target)});
 		new TouchAction((PerformsTouchActions) GetDriver.as(actor).appiumDriver())
 		.tap(new TapOptions()
 				.withElement(new ElementOption()

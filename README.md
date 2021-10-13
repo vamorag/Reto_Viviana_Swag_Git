@@ -1,20 +1,34 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Automatización Móvil con Screenplay
+---  
+ 
+El framework utilizado para la automatización de las pruebas es Serenity BDD utilizando el patron de diseño Screenplay  
+Link de referencia: https://serenity-bdd.github.io/theserenitybook/latest/index.html  
+ 
+Requisito para ejecutar:
+  + **Java 1.8** 
+  + **gradle 6 o superior**
+    
+Ejecución de pruebas  
+---  
+  
+Para ejecutar el proyecto completo utilizar el comando:  
+```
+ gradle test   
+```  
+Para ejecutar un runner específico : 
+ 
+```  gradle clean test -Dtest.single=MiRunner  ```   
+```  gradle clean test -Prunner=MiRunner  ``` 
+  
+Para ejecutar diferentes runners separándolos por comas:
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+```  gradle clean test -Prunner=PrimerRunner,SegundoRunner  ```
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Para Generar la evidencia de pruebas: 
+ 
+```  gradle aggregate  ```  
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Aunque el proyecto por si solo genera la evidencia automaticamente una vez finalice la ejecución.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Ejemplo comandos de ejecución: 
+```   gradle clean test -Dtest.single=LoginRunner aggregate  ```  
