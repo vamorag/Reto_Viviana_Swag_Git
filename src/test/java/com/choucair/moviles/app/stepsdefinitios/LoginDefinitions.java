@@ -1,5 +1,7 @@
 package com.choucair.moviles.app.stepsdefinitios;
 
+import com.choucair.moviles.app.exceptions.CompraException;
+import com.choucair.moviles.app.exceptions.LoginException;
 import com.choucair.moviles.app.models.DatosLoginModel;
 import com.choucair.moviles.app.questions.ValidaMensaje;
 import com.choucair.moviles.app.tasks.AbreLaApp;
@@ -28,6 +30,7 @@ public class LoginDefinitions {
     @Then("^Vera los productos en pantalla: (.*)$")
     public void verficarPantalla(String mensaje){
         theActorInTheSpotlight().should(
-                seeThat(ValidaMensaje.conTexto(mensaje)));
+                seeThat(ValidaMensaje.conTexto(mensaje))
+                        .orComplainWith(LoginException.class,LoginException.ErrorLogin()));
     }
 }
